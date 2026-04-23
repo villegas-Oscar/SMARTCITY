@@ -1,4 +1,5 @@
-import { observeAuth, logoutUser, getCurrenUserProfile } from "./auth.js"
+import { use } from "react"
+import { observeAuth, logoutUser, getCurrentUserProfile } from "./auth.js"
 
 const userName = document.getElementById ('userName')
 const navUserName = document.getElementById ('navUserName')
@@ -8,10 +9,10 @@ const logoutBtn = document.getElementById ('logoutBtn')
 
 observeAuth(async (user)=>{
     if (!user){
-        window.localStorage.href = './../../login.html'
+        window.location.href = './../../login.html'
         return
     }
-    const profile = await getCurrenUserProfile(userEmail.uid)
+    const profile = await getCurrentUserProfile(user.uid)
     const resolvedName = profile?.name || 'Usuario'
     const resolvedEmail = profile?.email || '--'
     const resolvedCity = profile?.favoriteCity || 'No Added'
@@ -24,5 +25,5 @@ observeAuth(async (user)=>{
 
 logoutBtn?.addEventListener('click', async() => {
     await logoutUser()
-    window.location.href = './ .. / .. /login.html'
+    window.location.href = './../../login.html'
 })

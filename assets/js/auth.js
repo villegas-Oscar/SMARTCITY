@@ -27,7 +27,7 @@ export function hideAlert(elementId){
 }
 
 export async function registerUser({name, email, password, favoriteCity}) {
-    const credential = await createUseWithEmailAndPassword(auth, email,password)
+    const credential = await createUserWithEmailAndPassword(auth, email,password)
 
     const user = credential.user
 

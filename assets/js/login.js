@@ -1,4 +1,4 @@
-import { hideAlert,showAlert, setButtonLoading, logoutUser, observeAuth, getFirebaseErrorMessage } from "./auth.js"
+import { login, hideAlert,showAlert, setButtonLoading, logoutUser, observeAuth, getFirebaseErrorMessage } from "./auth.js"
 
 const form = document.getElementById ('loginForm')
 const emailInput = document.getElementById ('loginEmail')
@@ -36,8 +36,7 @@ try{
     setButtonLoading(
         loginBtn,
         false,
-        '<i class="bi bi-box-arrow-in-right me-2"></i>Iniciar sesion', 
-        'Iniciando sesion'
+        '<i class="bi bi-box-arrow-in-right me-2"></i>Iniciar sesion'
     )
 }
 })
